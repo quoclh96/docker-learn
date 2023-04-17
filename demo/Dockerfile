@@ -1,10 +1,11 @@
 FROM openjdk:8
 WORKDIR /app
 
+RUN chmod +x mvnw
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:resolve
 
 COPY src ./src
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["./mvnw", "spring-boot:run", "package", "-Dmaven.test.skip"]
