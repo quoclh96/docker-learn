@@ -1,7 +1,6 @@
 FROM openjdk:8
 WORKDIR /app
 
-RUN chmod +x mvnw
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:resolve
