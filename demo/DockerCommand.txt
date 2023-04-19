@@ -1,0 +1,25 @@
+// Pull image from Docker Hub
+docker pull [name image]
+
+// Build docker => image from Dockerfile
+docker build --tag [name tag] .
+
+// Create and run container from image
+docker run -d -p 8080:8080 java-docker
+
+// Delete container
+docker rm [container name or id]
+
+// Delete image
+docker rmi [image name or id]
+note: need to stop container run by image before delete image
+
+// Map container's volume to host's volume
+-v [path host's volume]:[path container's volume]
+-v [name host's volume]:[path container's volume]
+
+// Run compose
+docker compose build
+docker-compose ps
+docker compose -d up
+docker-compose run -d  [name service] --service-ports

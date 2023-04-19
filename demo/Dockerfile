@@ -1,10 +1,3 @@
 FROM openjdk:8
-WORKDIR /app
-
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run", "package", "-Dmaven.test.skip"]
+ADD target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar 
+ENTRYPOINT ["java","-jar","/demo-0.0.1-SNAPSHOT.jar"]
